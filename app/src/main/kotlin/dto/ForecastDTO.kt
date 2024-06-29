@@ -1,3 +1,5 @@
+package hu.vanio.kotlin.hazifeladat.ms.dto
+
 import java.time.LocalDateTime
 
 data class ForecastDTO(
@@ -12,12 +14,14 @@ data class ForecastDTO(
     var hourly: HourlyDTO,
 )
 
-data class HourlyUnitsDTO(
-    var time: String,
-    var temperature_2m: String,
-)
-
 data class HourlyDTO(
     var time: List<LocalDateTime>,
     var temperature_2m: List<Double>,
+) {
+    fun getDates() = time.map { it.toLocalDate() }.distinct()
+}
+
+data class HourlyUnitsDTO(
+    var time: String,
+    var temperature_2m: String,
 )
