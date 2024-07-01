@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="hu">
+<head>
+    <title>Előrejelzés</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h1>Napi bontású előrejelzés</h1>
+<h2>Hely</h2>
+<ul>
+    <li>latitude=<span th:text="${latitude}">47.5</span></li>
+    <li>longitude=<span th:text="${longitude}">19.0625</span></li>
+</ul>
+
+<h2>Előrejelzés</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Nap</th>
+        <th>Min</th>
+        <th>Átlag</th>
+        <th>Max</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="data : ${hourly}">
+        <th th:text="${data.day}">day</th>
+        <td th:text="${data.minimumTemperature}">min</td>
+        <td th:text="${data.averageTemperature}">avg</td>
+        <td th:text="${data.maximumTemperature}">max</td>
+    </tr>
+    </tbody>
+</table>
+</body>
