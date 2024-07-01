@@ -28,7 +28,6 @@
 ## Gradle taskok
 
 Alkalmazás indítása (Spring boot esetén): `gradlew bootRun`
+Web alkalmazás indítása (Spring boot esetén): `gradlew bootRun -Pweb`
 
 Automata tesztek: `gradlew check`
-
-

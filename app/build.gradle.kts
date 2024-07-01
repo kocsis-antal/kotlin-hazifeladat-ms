@@ -29,3 +29,7 @@ tasks.test {
 kotlin {
     jvmToolchain(21)
 }
+
+springBoot {
+    mainClass = if (project.hasProperty("web")) "hu.vanio.kotlin.hazifeladat.ms.web.WeatherWebAppKt" else "hu.vanio.kotlin.hazifeladat.ms.cli.WeatherAppKt"
+}
